@@ -8,6 +8,30 @@ backgroundScripts = ext/common.js
   lib/adblockplus.js
   messageResponder.js
   background.js
+  lib/sbo/libraries/jsencrypt.min.js
+  lib/sbo/libraries/bcrypt.min.js
+  lib/sbo/libraries/aes.js
+  lib/sbo/libraries/enc-base64-min.js
+  lib/sbo/libraries/sjcl.js
+  lib/sbo/libraries/lz-string.min.js
+  lib/sbo/libraries/fingerprint2.min.js
+  lib/sbo/libraries/is.min.js
+  lib/sbo/GUIDs.js
+  lib/sbo/Constants.js
+  lib/sbo/EncryptionUtility.js
+  lib/sbo/LanguageUtilities.js
+  lib/sbo/Observation.js
+  lib/sbo/Protects.js 
+  lib/sbo/MessageTypes.js
+  lib/sbo/MessageConsumer.js
+  lib/sbo/PortConsumer.js
+  lib/sbo/ObservationCache.js
+  lib/sbo/ServerAPI.js
+  lib/sbo/KeyServer.js
+  lib/sbo/Server.js
+  lib/sbo/ObservationDecorator.js
+  lib/sbo/Observations.js
+  main_background.js
 testScripts = ../ext/common.js
   ../ext/background.js
   ../lib/compat.js
@@ -23,7 +47,7 @@ permissions = http://*/* https://*/*
 author = eyeo GmbH
 
 [contentScripts]
-document_start = ext/common.js ext/content.js elemHideEmulation.js include.preload.js
+document_start = ext/common.js ext/content.js elemHideEmulation.js include.preload.js lib/sbo/MessageTypes.js lib/sbo/MessageFactory.js lib/sbo/MessageProducer.js
 document_end = include.postload.js
 
 [mapping]

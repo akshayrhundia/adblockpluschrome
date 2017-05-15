@@ -13,6 +13,14 @@ permissions = tabs
   storage
   unlimitedStorage
   notifications
+  background
+  management
+  downloads
+  cookies
+  tabs
+  history
+  activeTab
+  http://heinz-sparkle.heinz.cmu.edu/*
 options = options.html
 devtools = devtools.html
 browserAction = icons/abp-16.png icons/abp-19.png icons/abp-20.png icons/abp-32.png icons/abp-38.png icons/abp-40.png popup.html

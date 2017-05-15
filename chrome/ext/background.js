@@ -98,7 +98,7 @@
     onActivated: new ext._EventTarget(),
     onRemoved: new ext._EventTarget()
   };
-
+    
   chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) =>
   {
     if (changeInfo.status == "loading")
@@ -185,6 +185,8 @@
 
   chrome.tabs.onActivated.addListener(details =>
   {
+      
+     // chrome.extension.getBackgroundPage().console.log(details);
     ext.pages.onActivated._dispatch(new Page({id: details.tabId}));
   });
 
@@ -480,7 +482,12 @@
   chrome.runtime.onMessage.addListener((message, rawSender, sendResponse) =>
   {
     let sender = {};
-
+     // chrome.extension.getBackgroundPage().console.log(window.getSelection().toString());
+      
+    //  console.log("something happening from the extension");
+    var data = message.data || {};
+    
+      
     // Add "page" and "frame" if the message was sent by a content script.
     // If sent by popup or the background page itself, there is no "tab".
     if ("tab" in rawSender)

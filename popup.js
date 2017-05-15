@@ -29,6 +29,7 @@ let page = null;
 
 function onLoad()
 {
+  //  chrome.extension.getBackgroundPage().console.log(ext.pages);
   ext.pages.query({active: true, lastFocusedWindow: true}, pages =>
   {
     page = pages[0];
@@ -55,6 +56,7 @@ function onLoad()
     // Otherwise, we are in default state.
     if (page)
     {
+     
       if (checkWhitelisted(page))
         document.body.classList.add("disabled");
 
@@ -86,16 +88,53 @@ function onLoad()
 function toggleEnabled()
 {
   let disabled = document.body.classList.toggle("disabled");
+   // chrome.extension.getBackgroundPage().console.log("toggle");
   if (disabled)
   {
     let host = getDecodedHostname(page.url).replace(/^www\./, "");
     let filter = Filter.fromText("@@||" + host + "^$document");
+    // chrome.extension.getBackgroundPage().console.log("toggle"+disabled);
     if (filter.subscriptions.length && filter.disabled)
       filter.disabled = false;
     else
     {
       filter.disabled = false;
       FilterStorage.addFilter(filter);
+       // chrome.extension.getBackgroundPage().console.log("toggler"+disabled);
+        var mins = new Date().getTime() / 60000; 
+        // Save it using the Chrome extension storage API.
+        
+        var message = {
+				"source": "background",
+				"normal.property1": "Hello World",
+				"normal.property2": "Hello Again"
+			};
+			Observations.recordEvent(message);
+        chrome.storage.sync.get( "disabled", function(obj) {
+            chrome.extension.getBackgroundPage().console.log ("check");
+            if(obj.disabled){
+                obj.disabled[host] = mins;
+            }else{
+                obj.disabled={};
+                 obj.disabled[host] = mins;
+            }
+          //  chrome.extension.getBackgroundPage().console.log (obj.disabled);
+        chrome.storage.sync.set( {disabled : obj.disabled}, function () {
+        chrome.extension.getBackgroundPage().console.log ( "Updated " + host + " to " + mins );
+    });
+});
+        
+        
+        /*chrome.storage.sync.set({host: seconds}, function(result) {
+          // Notify that we saved.
+            chrome.extension.getBackgroundPage().console.log('sent:'+host);
+            chrome.extension.getBackgroundPage().console.log('saved:'+result.host);
+          message('Settings saved');
+        });*/
+       // FilterStorage.addBlockTime(host,seconds);
+       // FilterStorage.saveToDisk();
+        //  chrome.extension.getBackgroundPage().console.log("getting"+FilterStorage.getBlockTime(host));
+    
     }
   }
   else

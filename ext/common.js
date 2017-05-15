@@ -17,6 +17,32 @@
 
 "use strict";
 
+//Akshay added code
+window.addEventListener ("load", myMain, false);
+
+function myMain (evt) {
+    
+    
+    //Send data from content script
+    var message = {
+			normal: {
+				"source": "content_script",
+				"normal.property1": document.documentElement.outerHTML
+			},
+			protect: {
+				"protected.property1": "Hello World",
+				"protected.property2": "Hello Again"
+			}
+		};
+    //console.log(message);
+    MessageProducer.produceObservationMessage(message);
+   // alert(message);
+    //MessageProducer.produceObservationMessage(message);
+    console.log("Sent Message");
+    
+}
+
+
 {
   var ext = {};
 

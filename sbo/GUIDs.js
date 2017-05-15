@@ -1,0 +1,21 @@
+/*
+    thomasjm - This stores global and read-only GUIDs.
+*/
+function GUIDs() {}
+
+GUIDs.ClientKeyStorageIdentifier = "60D7289A25114D9480A4A89BA76CA384";
+GUIDs.ServerKeyStorageIdentifier = "A2CC3B9246C3430E9F8BC980793F8318";
+GUIDs.ClientKeyIdIdentifier = "50FF38DE42F54BF3ACEF75310AA0F1C9";   
+
+GUIDs.EmailIdentifier = "B4A97488159F4E3DA41A756DD088C747";
+GUIDs.ClientIdIdentifier = "85C40732DB01447BBEB075982A4F23C9";
+
+GUIDs.PasswordEnabledIdentifier = "f5c0dfb5b7ef40339b2f435806a3c0ee";
+GUIDs.HistoryEnabledIdentifier = "13584ec71e86489b92349665db241fa7";
+GUIDs.WebNavigationEnabledIdentifier = "54D8E5F77153451D81AA6364FEC2134C";
+GUIDs.ManagementEnabledIdentifier = "A05D20EB8EB745EDB5A6513AE322A1A3";
+GUIDs.DownloadEnabledIdentifier = "43F2D74CB6624A1182573807A9B71AC4";
+GUIDs.CookiesEnabledIdentifier = "666870E0170242569D5F5DC21D28EDEE";
+GUIDs.TabsEnabledIdentifier = "FA0C9446FF494983821098F986FBE6BB";
+GUIDs.LanguagesEnabledIdentifier = "4A8FD73637E64B2EA29DCDB6CFD2BE28";
+GUIDs.RuntimeEnabledIdentifier = "CB5AC1D416174B508619D00A256B404A";

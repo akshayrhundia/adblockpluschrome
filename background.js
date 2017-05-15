@@ -28,7 +28,8 @@ port.on("get-selectors", (msg, sender) =>
 {
   let selectors;
   let trace = devtools && devtools.hasPanel(sender.page);
-
+//chrome.extension.getBackgroundPage().console.log(sender.page);
+  //  chrome.extension.getBackgroundPage().console.log(sender.frame);
   if (!checkWhitelisted(sender.page, sender.frame,
                         RegExpFilter.typeMap.DOCUMENT |
                         RegExpFilter.typeMap.ELEMHIDE))
@@ -64,3 +65,5 @@ port.on("forward", (msg, sender) =>
     targetPage.sendMessage(msg.payload);
   }
 });
+
+
